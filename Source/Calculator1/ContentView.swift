@@ -24,7 +24,7 @@ enum CalcButton: String {
     case multiply = "x"
     case equal = "＝"
     case clear = "AC"
-    case decimal = "．"
+    case decimal = "."
     case percent = "％"
     case negative = "-/+"
     
@@ -103,25 +103,25 @@ struct ContentView: View {
         case .add, .subtract, .multiply, .divide, .equal:
             if button == .add{
                 self.currentOperation = .add
-                self.runningNumber = Int(self.value) ?? 0
+                self.runningNumber = Int(Double(self.value) ?? 0)
             }
             else if button == .subtract{
                 self.currentOperation = .subtract
-                self.runningNumber = Int(self.value) ?? 0
-            }
+                self.runningNumber = Int(Double(self.value) ?? 0)
+                }
             else if button == .multiply{
                 self.currentOperation = .multiply
-                self.runningNumber = Int(self.value) ?? 0
+                self.runningNumber = Int(Double(self.value) ?? 0)
             }
             else if button == .divide{
                 self.currentOperation = .divide
-                self.runningNumber = Int(self.value) ?? 0
+                self.runningNumber = Int(Double(self.value) ?? 0)
             }
             
             
             else if button == .equal{
                 let runningValue = self.runningNumber
-                let currentValue = Int(self.value) ?? 0
+                let currentValue = Double(self.value) ?? 0
                 switch self.currentOperation{
                 case .add: self.value = "\(Double(runningValue) + Double(currentValue))"
                 case .subtract: self.value = "\(Double(runningValue) - Double(currentValue))"
