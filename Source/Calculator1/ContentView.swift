@@ -47,7 +47,7 @@ enum Operation {
 struct ContentView: View {
     
     @State var value = "0"
-    @State var runningNumber = 0
+    @State var runningNumber: Double = 0
     @State var currentOperation : Operation = .none
     let buttons: [[CalcButton]] = [
         [.clear, .negative, .percent, .divide],
@@ -103,19 +103,19 @@ struct ContentView: View {
         case .add, .subtract, .multiply, .divide, .equal:
             if button == .add{
                 self.currentOperation = .add
-                self.runningNumber = Int(Double(self.value) ?? 0)
+                self.runningNumber = Double(self.value) ?? 0
             }
             else if button == .subtract{
                 self.currentOperation = .subtract
-                self.runningNumber = Int(Double(self.value) ?? 0)
+                self.runningNumber = Double(self.value) ?? 0
                 }
             else if button == .multiply{
                 self.currentOperation = .multiply
-                self.runningNumber = Int(Double(self.value) ?? 0)
+                self.runningNumber = Double(self.value) ?? 0
             }
             else if button == .divide{
                 self.currentOperation = .divide
-                self.runningNumber = Int(Double(self.value) ?? 0)
+                self.runningNumber = Double(self.value) ?? 0
             }
             
             
